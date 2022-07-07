@@ -1,21 +1,36 @@
-<h3>Create Employee</h3>
+<h3 *ngIf="!update">Create Employee</h3>
+<h3 *ngIf="update">Update Employee</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit(formEmployee)" autocomplete="off" #formEmployee = "ngForm">
     <div class="form-group">
       <label for="name">Nome</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName" #nomeRef = "ngModel">
     </div>
+    <ul class="text-danger" *ngIf="nomeRef.touched && nomeRef.invalid">
+      <li *ngIf="nomeRef.errors?.required">Il nome è obbligatorio</li>
+    </ul>
 
     <div class="form-group">
       <label for="name">Cognome</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName" #cognomeRef = "ngModel">
     </div>
+    <ul class="text-danger" *ngIf="cognomeRef.touched && cognomeRef.invalid">
+      <li *ngIf="cognomeRef.errors?.required">Il cognome è obbligatorio</li>
+    </ul>
 
     <div class="form-group">
       <label for="name">Email</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" pattern = "^(.+)@(.+)$"
+      name="emailId" #emailRef = "ngModel">
     </div>
-
+    <ul class="text-danger" *ngIf="emailRef.touched && emailRef.invalid">
+      <li *ngIf="emailRef.errors?.required">La mail è obbligatoria</li>
+      <li *ngIf="emailRef.errors?.pattern">Il pattern della mail non è rispettato</li>
+    </ul>
+    <div class="form-group">
+      <label for="data_nascita">Data di nascita</label>
+      <input type="date" class="form-control" name="data_nascita" id="data_nascita" #data_nascita = "ngModel" [(ngModel)] = "employee.dataNascita">
+    </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
   <div class="text-danger text-center m-2">

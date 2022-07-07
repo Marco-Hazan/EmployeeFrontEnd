@@ -3,5 +3,7 @@ export class Employee {
   firstName: string;
   lastName: string;
   emailId: string;
+  dataNascita: string;
   active: boolean;
+  follow:boolean;
 }
