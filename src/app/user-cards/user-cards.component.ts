@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
@@ -13,6 +13,7 @@ export class UserCardsComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) { }
 
+  
 
 
   ngOnInit() {
@@ -20,6 +21,10 @@ export class UserCardsComponent implements OnInit {
     .subscribe(
       data => this.employees = data
     );
+  }
+
+  onFollow(){
+
   }
 
 }

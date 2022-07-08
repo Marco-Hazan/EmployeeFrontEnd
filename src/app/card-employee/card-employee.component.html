@@ -1,0 +1,15 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://is4-ssl.mzstatic.com/image/thumb/Music124/v4/ea/c7/1a/eac71adc-635c-37ac-2a95-3b49069b2287/00602557567151.rgb.jpg/1200x1200bf-60.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{employee.firstName + " "+employee.lastName}}</h5>
+    <p class="card-text">{{employee.emailId}}</p>
+    <div class="row">
+      <div class="col text-left">
+        <button (click) = "follow()"  class="btn btn-primary">{{employee.follow? "Unfollow": "Follow"}}</button>
+      </div>
+      <div class="col text-right">
+        <button class="btn btn-outline-primary" routerLink="/details/{{employee.id}}">Details</button>
+      </div>
+    </div>
+  </div>
+</div>

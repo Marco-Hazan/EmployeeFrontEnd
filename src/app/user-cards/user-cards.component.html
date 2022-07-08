@@ -1,3 +1,5 @@
-<p>
-  user-cards works!
-</p>
+<div class="card-columns">
+  <div *ngFor = "let emp of employees">
+    <app-card-employee [employee] = "emp"></app-card-employee>
+  </div>
+</div>

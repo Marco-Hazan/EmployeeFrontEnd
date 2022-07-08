@@ -9,6 +9,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UserCardsComponent } from './user-cards/user-cards.component';
+import { CardEmployeeComponent } from './card-employee/card-employee.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { UserCardsComponent } from './user-cards/user-cards.component';
     EmployeeDetailsComponent,
     EmployeeListComponent,
     UpdateEmployeeComponent,
-    UserCardsComponent
+    UserCardsComponent,
+    CardEmployeeComponent
   ],
   imports: [
     BrowserModule,
